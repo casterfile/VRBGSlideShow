@@ -11,6 +11,11 @@ namespace GoogleVR.GVRDemo {
 		private int totalLoop = 0;
 		private int CurrentPicture = 0,CurrentVideo = 0;
 		private bool isVideo = false;
+		private float timeMouseDown = 0.0f;
+		public bool mouseDown = false;
+		private string NameAction = "";
+		private int IntAction = -1;
+		private GameObject StartGameButton;
 
 	    void Start() {
 			int ArrayLength = 9;
@@ -23,10 +28,41 @@ namespace GoogleVR.GVRDemo {
 			URLSetting ();
 			HideAllVideos ();
 //			StartCoroutine(Transition());
-//			objPicture [0].SetActive (true);
-			TransitionStart();
+			objPicture [4].SetActive (true);
+//			TransitionStart();
 	    }
 
+		void Update() {
+			if (mouseDown == true) {
+				timeMouseDown += Time.deltaTime;
+				//				print ("timeMouseDown: "+timeMouseDown);
+				if(timeMouseDown >= 2){
+					if(NameAction == "Video"){
+						Controller("Video",IntAction);
+						OnPointerUp ();
+					}
+				}
+			}
+		}
+
+		private void Controller(string Output,int OutputNumber)
+		{
+			if(Output == "Video"){
+				HideAllVideos ();
+				TransitionStart();
+				StartGameButton.SetActive (false);
+			}
+		}
+
+		public void SceneVideo(){
+			mouseDown = true;
+			NameAction = "Video";
+		}
+
+		public void OnPointerUp(){
+			mouseDown = false;
+			timeMouseDown = 0;
+		}
 
 		private void HideAllVideos(){
 			for (int x = 0; x <= totalLoop; x++) {
@@ -48,7 +84,7 @@ namespace GoogleVR.GVRDemo {
 //				objVideo [x].SetActive(false);
 //				objPicture [x].SetActive(false);
 			}
-
+			StartGameButton =  GameObject.Find("StartGame");
 	
 		}
 		private void TransitionStart(){
@@ -61,7 +97,6 @@ namespace GoogleVR.GVRDemo {
 				objVideo [CurrentPicture].SetActive (true);
 				CurrentVideo++;
 				StartCoroutine(Transition());
-				
 			} else {
 				if(CurrentPicture == totalLoop){
 					CurrentPicture = 0;

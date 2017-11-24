@@ -157,6 +157,7 @@
      <Compile Include="Assets\_MyAsset\_Script\TimedInoutHandler.cs" />
      <Compile Include="Assets\_MyAsset\_Script\_UIScript\LoadingbarAsset.cs" />
      <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
+     <None Include="Assets\LICENSE.txt" />
      <None Include="Assets\GoogleVR\Shaders\GvrAdditiveOverlay.shader" />
      <None Include="Assets\GoogleVR\Demos\Environment\DemoEnvUnlitGrayscale.shader" />
      <None Include="Assets\GoogleVR\Shaders\GvrController.shader" />
