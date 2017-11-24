@@ -153,6 +153,7 @@
      <Compile Include="Assets\_MyAsset\_Script\LoadAssetStreaming.cs" />
      <Compile Include="Assets\_MyAsset\_Script\Output.cs" />
      <Compile Include="Assets\_MyAsset\_Script\SceneController.cs" />
+     <Compile Include="Assets\_MyAsset\_Script\SceneControllerSlideShow.cs" />
      <Compile Include="Assets\_MyAsset\_Script\TimedInoutHandler.cs" />
      <Compile Include="Assets\_MyAsset\_Script\_UIScript\LoadingbarAsset.cs" />
      <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
